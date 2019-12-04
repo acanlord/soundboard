@@ -1,0 +1,23 @@
+.btn-group button {
+  margin-top:20px;
+  background-color: #1a1aff; 
+  border: 1px solid #1a1aff; 
+  color: white; 
+  padding: 40px 40px; 
+  float: left; Float the buttons side by side
+  padding-left: px */
+}
+
+.uploads > div {
+  margin-top:20px;
+  background-color: #1a1aff; 
+  border: 1px solid #1a1aff; 
+  color: white; 
+  padding: 40px 40px; 
+  float: left; Float the buttons side by side
+  padding-left: px */
+}
+
+#Uploads {
+  background:red;
+}
