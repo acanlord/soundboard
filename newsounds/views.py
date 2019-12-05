@@ -14,7 +14,7 @@ def index(request):
     # This is similar to ones we have done before. Instead of keeping
     # the HTML / template in a separate directory, we just reply with
     # the HTML embedded here.
-    AudioFile.create(
+    AudioFile.objects.create(
         absolute_path="/some/path/to/a/file.wav",
         filename="file.wav"
     )
