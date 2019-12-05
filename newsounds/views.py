@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 # from django.contrib.auth.models import User
 
+# Import db model
 from .models import AudioFile
 
 # Uploads
@@ -10,12 +11,11 @@ from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
+
 def index(request):
-    # This is similar to ones we have done before. Instead of keeping
-    # the HTML / template in a separate directory, we just reply with
-    # the HTML embedded here.
-    AudioFile.objects.create(
+    post = AudioFile.objects.create(
         absolute_path="/some/path/to/a/file.wav",
+        #absolute_path="{ path_to_file }",
         filename="file.wav"
     )
     all_audio_files = AudioFile.objects.all()
@@ -23,11 +23,7 @@ def index(request):
         'audio_files' : all_audio_files
     }
     return render(request, 'templates/index.html', context)
-    # return HttpResponse('''
-    #     <h1>Check out some sounds</h1>
-    #     <a href="/sound">Sound Test</a> <br />
-    #     <a href="/uploads">Upload a file</a> <br />
-    # ''')
+
 
 def sound(request):
     context = {}
