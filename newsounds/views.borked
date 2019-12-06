@@ -16,7 +16,7 @@ from django.core.files.storage import default_storage
 
 #Test what we think current root is
 #curr_path = os.path.dirname(os.path.abspath(__file__))
-curr_path = os.path.join(settings.MEDIA_URL),
+curr_path = os.path.dirname(settings.MEDIA_URL),
 print ("Your current path is", curr_path)
 
 def index(request):
@@ -37,13 +37,13 @@ def uploads(request):
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         fn = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(fn)
+        # uploaded_file_url = fs.url(filename)
 
         # Make the database entry
         post = AudioFile.objects.create(
-           #absolute_path = os.path.join(settings.MEDIA_ROOT, fn),
-           absolute_path = os.path.join(settings.MEDIA_URL, fn),
-           filename = fn
+            #absolute_path = os.path.join(settings.MEDIA_ROOT, fn),
+            absolute_paath = os.path.dirname(settings.MEDIA_URL, fn), 
+            filename = fn
         )
 
         return render(request, 'uploads.html', {
