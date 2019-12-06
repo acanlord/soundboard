@@ -32,6 +32,10 @@ def sound(request):
     context = {}
     return render(request, 'sound.html', context) 
 
+def custom(request):
+    context = {}
+    return render(request, 'custom.html', context) 
+
 def uploads(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
@@ -41,6 +45,7 @@ def uploads(request):
 
         # Make the database entry
         post = AudioFile.objects.create(
+            #Django does not care about absolute path. 
            #absolute_path = os.path.join(settings.MEDIA_ROOT, fn),
            absolute_path = os.path.join(settings.MEDIA_URL, fn),
            filename = fn
