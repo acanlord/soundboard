@@ -14,9 +14,9 @@ from django.core.files.storage import FileSystemStorage
 
 def index(request):
     post = AudioFile.objects.create(
-        absolute_path="/some/path/to/a/file.wav",
-        #absolute_path="{ path_to_file }",
-        filename="file.wav"
+        #absolute_path="/some/path/to/a/file.wav",
+        absolute_path="{ path_to_file }",
+        filename="{ file_name }"
     )
     all_audio_files = AudioFile.objects.all()
     context = {
