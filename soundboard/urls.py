@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.index),
     path('sound', views.sound),
     path('uploads', views.uploads),
+    #path('index', newsounds.uploads),
 ]
 
 # Boilerplate to include static files

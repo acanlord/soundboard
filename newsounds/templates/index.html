@@ -10,7 +10,7 @@
 
     {% for audio_file in audio_files %}
 
-        Audio file absolute path: {{ audio_file.absolute_path }} and filename: {{ audio_file.filename }}
+        <p><b>{{audio_file.filename}}</b> is at <b>{{audio_file.absolute_path}}</b></p>
 
     {% endfor %}
     
