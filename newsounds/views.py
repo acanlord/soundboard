@@ -2,6 +2,7 @@ import requests
 import os
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.datastructures import MultiValueDictKeyError
 # from django.contrib.auth.models import User
 
 # Import db model
@@ -40,3 +41,10 @@ def uploads(request):
             'uploaded_file_url': uploaded_file_url
         })
     return render(request, 'uploads.html')
+
+# Error checking
+
+# try:
+#     is_private = request.POST['is_private']
+# except MultiValueDictKeyError:
+#     is_private = False
