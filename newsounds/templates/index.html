@@ -13,11 +13,11 @@
         <p><b>{{audio_file.filename}}</b> is at <b>{{audio_file.absolute_path}}</b></p>
         <p><b>{{audio_file.filename}}</b> is at <b>{{audio_file.absolute_path}}</b></p>
 
-        <!-- <a href="{{ MEDIA_URL }}{{ audo_file.absolute_path }}" target="_blank">{{ audo_filename.filename }}</a> -->
 
+        <a href ="{{ audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a> -->
 
         Test Buttons
-        <a href ="{{audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a>
+        <!-- <a href ="{{audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a> -->
         <!-- <a href = "{{uploaded_file_url}}" > <button>{{audio_file.filename}}</button></a> -->
 
     {% endfor %}
