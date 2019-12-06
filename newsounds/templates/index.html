@@ -10,7 +10,7 @@
 
     {% for audio_file in audio_files %}
 
-        Audio file absolute path: {{ audio_file.save_path }} and filename: {{ audio_file.path }}
+        Audio file absolute path: {{ audio_file.absolute_path }} and filename: {{ audio_file.filename }}
 
     {% endfor %}
     
