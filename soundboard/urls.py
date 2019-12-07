@@ -9,7 +9,7 @@ from django.contrib import admin
 urlpatterns = [
     path('', views.index),
     #path('sound', views.sound),
-    path('custom', views.custom),
+    #path('custom', views.custom),
     path('uploads', views.uploads),
     path('admin', views.uploads),
     #path('index', newsounds.uploads),

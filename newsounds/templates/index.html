@@ -71,147 +71,17 @@
   <!-- Page Content -->
   <div class="container">
 
-    <div class="row">
-      <div class="col-md-8 mb-5">
-        
-    <!-- /.row -->
+    {% for audio_file in audio_files %}
 
-    <div class="row">
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Sound title</h4>
-            <p class="card-text"></p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Hip Hop</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Sound title</h4>
-            <p class="card-text"></p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Reggae</a>
-          </div>
-        </div>
-  </div>
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Sound title</h4>
-            <p class="card-text"></p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Jazz</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-<!-- /.row -->
 
-    
-           
-    
-  
-<div class="row">
-  <div class="col-md-4 mb-5">
-    <div class="card h-100">
-      <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Sound title</h4>
-        <p class="card-text"></p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-primary">Classical</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-5">
-    <div class="card h-100">
-      <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Sound title</h4>
-        <p class="card-text"></p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-primary">Latin Jazz</a>
-      </div>
-    </div>
-</div>
-<div class="col-md-4 mb-5">
-  <div class="card h-100">
-      <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Country</h4>
-        <p class="card-text"></p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-primary">Jazz</a>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- <a href ="{{ audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a>  -->
+    <button onClick="('{{ audio_file.absolute_path }}').play()">{{audio_file.filename}}</button>
 
-    
-      
-<!-- /.row -->
+  <!-- <button onClick="('./media/test.wav').play()">{{audio_file.filename}}</button> -->
+  <!-- <buttononClick="new Audio('/static/path/to/your/sound.mp3').play()">Click me to play</button> -->
 
-    
-           
-    
-  
-<div class="row">
-  <div class="col-md-4 mb-5">
-    <div class="card h-100">
-      <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Sound title</h4>
-        <p class="card-text"></p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-primary">R&B</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-5">
-    <div class="card h-100">
-      <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Sound title</h4>
-        <p class="card-text"></p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-primary">Rock</a>
-      </div>
-    </div>
-</div>
-<div class="col-md-4 mb-5">
-  <div class="card h-100">
-      <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Sound title</h4>
-        <p class="card-text"></p>
-      </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-primary">Alternative</a>
-      </div>
-    </div>
-  </div>
-</div>
+{% endfor %}
 
-    <!-- /.row -->
-       
-    
-
-<!-- Footer -->
 
 
   <footer 
