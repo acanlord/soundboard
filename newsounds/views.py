@@ -34,7 +34,7 @@ def index(request):
 
     #all_audio_files = AudioFile.objects.all()
     context = {
-        'audio_files' : all_audio_files,
+        #'audio_files' : all_audio_files,
     }
     return render(request, 'index.html', context)
 
