@@ -41,7 +41,8 @@ def uploads(request):
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         fn = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(fn)
+        upload_file_url = fs.url(fn)
+        
 
         # Make the database entry
         post = AudioFile.objects.create(
@@ -52,6 +53,6 @@ def uploads(request):
         )
 
         return render(request, 'uploads.html', {
-            'uploaded_file_url': fn
+            'uploaded_file_url': upload_file_url 
         })
     return render(request, 'uploads.html')
