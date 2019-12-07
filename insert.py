@@ -1,16 +1,16 @@
 import sqlite3
 
-conn = sqlite3.connect('image.db')
+conn = sqlite3.connect('db.sqlite3')
 cursor=conn.curson()
 
-name='filename'
+filename='test.wav'
 
 with open ('file', 'rb') as f:
     data=f.read()
 
-cursor.execute("""
-        INSERT INTO my_table (name, data) VALUES (?,?)""" (name,data))
-        """)
+cursor.execute(
+INSERT INTO my_table (absolute_path, filename) VALUES (?,?)""" (filename))
+)
 
 
 conn.commit()

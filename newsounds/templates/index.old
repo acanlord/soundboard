@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Soundboard Page</title>
+</head>
+<body>
+
+    {% for audio_file in audio_files %}
+
+        <!-- <p><b>{{audio_file.filename}}</b> is at <b>{{audio_file.absolute_path}}</b></p>
+        <p><b>{{audio_file.filename}}</b> is at <b>{{audio_file.absolute_path}}</b></p>
+ -->
+
+        <a href ="{{ filename }}"> <button>{{audio_file.filename}}</button></a> 
+
+        Test Buttons
+        <!-- <a href ="{{audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a> -->
+        <!-- <a href = "{{uploaded_file_url}}" > <button>{{audio_file.filename}}</button></a> -->
+
+    {% endfor %}
+    
+</body>
+</html>
