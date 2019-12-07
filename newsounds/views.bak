@@ -2,6 +2,7 @@ import requests
 import os
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.datastructures import MultiValueDictKeyError
 # from django.contrib.auth.models import User
 
 # Import db model
@@ -11,41 +12,65 @@ from .models import AudioFile
 from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from django.core.files.storage import default_storage
+
+#Test what we think current root is
+#curr_path = os.path.dirname(os.path.abspath(__file__))
+curr_path = os.path.join(settings.MEDIA_URL),
+print ("Your current path is", curr_path)
 
 
-#   def index(request):
-#       post = AudioFile.objects.create(
-#           absolute_path="/some/path/to/a/file.wav",
-#           absolute_path= ,
-#           filename="{ file_name }"
-#       )
-
-    def index(request):
-        post = AudioFile.objects.create(
-            save_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['file']),
-            path = default_storage.save(save_path, request.FILES['file']),
-            #return default_storage.path(path)
-        )
 
 
-     all_audio_files = AudioFile.objects.all()
+def custom(request):
+
+    all_audio_files = AudioFile.objects.all()
     context = {
-        'audio_files' : all_audio_files
+        'audio_files' : all_audio_files,
     }
-    return render(request, 'templates/index.html', context)
+    return render(request, 'custom.html', context)
+
+def index(request):
+
+    for root, dirs, files in os.walk("/media"):
+        for filename in files:
+    #     print(filename)
+
+    #all_audio_files = AudioFile.objects.all()
+            context = {
+            'audio_files' : filename,
+            }
+            return render(request, 'index.html', context)
 
 
-def sound(request):
-    context = {}
-    return render(request, 'sound.html', context) 
+# for myModel in MyModel.objects.all():
+#   # You can do the below even better if you use the same method as the model uses
+#   # to generate upload_to
+#   file_name = 'my_file_this_should_depend_on_myModel'
+#   file_location = 'path/to/file/dir/%s' % file_name
+#   print "UPDATE app_mymodel SET file_field='%s' WHERE id=%s;" % \
+#     (file_location, myModel.id)
+
+
+
 
 def uploads(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
+        fn = fs.save(myfile.name, myfile)
+        upload_file_url = fs.url(fn)
+        
+
+        # Make the database entry
+        post = AudioFile.objects.create(
+            #Django does not care about absolute path. 
+           #absolute_path = os.path.join(settings.MEDIA_ROOT, fn),
+           absolute_path = os.path.join(settings.MEDIA_URL, fn),
+           filename = fn
+        )
+
         return render(request, 'uploads.html', {
-            'uploaded_file_url': uploaded_file_url
+            'uploaded_file_url': upload_file_url 
         })
     return render(request, 'uploads.html')

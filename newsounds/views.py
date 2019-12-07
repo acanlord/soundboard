@@ -19,22 +19,43 @@ from django.core.files.storage import default_storage
 curr_path = os.path.join(settings.MEDIA_URL),
 print ("Your current path is", curr_path)
 
-def index(request):
+
+
+
+def custom(request):
 
     all_audio_files = AudioFile.objects.all()
     context = {
         'audio_files' : all_audio_files,
     }
+    return render(request, 'custom.html', context)
+
+def index(request):
+
+    #all_audio_files = AudioFile.objects.all()
+    context = {
+        'audio_files' : all_audio_files,
+    }
     return render(request, 'index.html', context)
 
+#def index(request):
+    
 
-def sound(request):
-    context = {}
-    return render(request, 'sound.html', context) 
+    # for File in AudioFile.objects.all():
+    # # You can do the below even better if you use the same method as the model uses
+    # # to generate upload_to
+    #     file_name = 'my_file_this_should_depend_on_myModel'
+    #     file_location = '/media%s' % file_name
+    #     print "UPDATE app_mymodel SET file_field='%s' WHERE id=%s;" % \ 
+    #         (file_location, AudioFile.id)
 
-def custom(request):
-    context = {}
-    return render(request, 'custom.html', context) 
+
+    #all_audio_files = AudioFile.objects.all()
+            # context = {
+            # 'audio_files' : filename,
+            # }
+            # return render(request, 'index.html', context)
+
 
 def uploads(request):
     if request.method == 'POST' and request.FILES['myfile']:
