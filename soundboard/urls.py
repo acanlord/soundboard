@@ -7,12 +7,11 @@ from django.contrib import admin
 
 # In this example, we've separated out the views.py into a new file
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name = 'index'),
     #path('sound', views.sound),
     #path('custom', views.custom),
-    path('uploads', views.uploads),
+    path('uploads', views.uploads, name = 'uploads'),
     path('admin', views.uploads),
-    #path('index', newsounds.uploads),
 ]
 
 # Boilerplate to include static files
