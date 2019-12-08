@@ -74,8 +74,8 @@
     {% for audio_file in audio_files %}
 
 
-    <a href ="{{ audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a> 
-    <!-- <button onClick="('{{ audio_file.absolute_path }}').play()">{{audio_file.filename}}</button> -->
+    <!-- <a href ="{{ audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a>  -->
+    <button onClick="new Audio('{{ audio_file.absolute_path }}').play()">{{audio_file.filename}}</button>
 
   <!-- <button onClick="('./media/test.wav').play()">{{audio_file.filename}}</button> -->
   <!-- <buttononClick="new Audio('/static/path/to/your/sound.mp3').play()">Click me to play</button> -->
