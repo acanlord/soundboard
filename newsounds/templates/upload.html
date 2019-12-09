@@ -5,11 +5,11 @@
 {% block content %}
 
 <div class = "format-text">
-<h1>Uploads</h1>
+<h1>Upload</h1>
 </div>
 
-<div class='uploads'></div>
-  <form method="post" enctype="multipart/form-data" action="/uploads">
+<div class='upload'></div>
+  <form method="post" enctype="multipart/form-data" action="/upload">
     {% csrf_token %}
     <input type="file" name="myfile">
     <button type="submit">Upload</button>
