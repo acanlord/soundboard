@@ -38,7 +38,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def uploads(request):
+def upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
@@ -54,7 +54,7 @@ def uploads(request):
            filename = fn
         )
 
-        return render(request, 'uploads.html', {
+        return render(request, 'upload.html', {
             'uploaded_file_url': upload_file_url 
         })
-    return render(request, 'uploads.html')
+    return render(request, 'upload.html')
