@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Soundboard Page</title>
+</head>
+<body>
+
+    {% for audio_file in audio_files %}
+
+
+        <!-- <a href ="{{ audio_file.absolute_path}}"> <button>{{audio_file.filename}}</button></a>  -->
+
+      <button onClick="'{{ audio_file.absolute_path}}"').play()">{{audio_file.filename}}</button>
+
+    {% endfor %}
+    
+</body>
+</html>

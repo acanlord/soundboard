@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-{% load static %} 
-
 <html lang="en">
 	<head>
     <title>{% block title %}{% endblock %}</title>
@@ -8,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<!-- Bootstrap core CSS -->
   	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="static/css/bootstrap.css">  
-	<link rel="stylesheet" href="static/css/base.css">   
+  	<link rel="stylesheet" href="static/css/base.css">    
+    <link rel="stylesheet" href="static/css/bootstrap.css">  
 	<!-- Custom styles for this template -->
   	<link href="css/business-frontpage.css" rel="stylesheet">
 	<!--
@@ -20,10 +18,7 @@
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 				<div class="container">
-				  <a class="navbar-brand" href="{% url 'index' %}">
-					<!--<img src="{% static 'soundboard_img' %}" style="height: 40px" />-->
-					Soundboard
-				  </a>
+				  <a class="navbar-brand" href="{% url 'index' %}">Soundboard</a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				  </button>
