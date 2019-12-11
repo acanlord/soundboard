@@ -8,8 +8,12 @@ from django.contrib import admin
 # In this example, we've separated out the views.py into a new file
 urlpatterns = [
     path('', views.index, name = 'index'),
-    path('upload', views.upload, name = 'upload'),
-    path('admin', views.upload),
+    path('upload/', views.upload, name = 'upload'),
+    path('admin/', admin.site.urls),
+    path('sign_up/', views.sign_up),
+    path('log_in/custom/', views.custom, name='custom'),
+	path('log_in/', views.log_in, name='log_in'),
+	path('logout/', views.logout_view, name='logout'),
 ]
 
 # Boilerplate to include static files
