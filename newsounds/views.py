@@ -1,16 +1,10 @@
 import requests
 import os
+from django.conf import settings
 from django.shortcuts import render
-# from django.contrib.auth.models import User
-
-# Import db model
+from django.core.files.storage import FileSystemStorage
 from .models import AudioFile
 
-# Uploads
-from django.shortcuts import render
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
-from django.core.files.storage import default_storage
 
 def index(request):
 
