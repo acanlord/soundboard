@@ -32,6 +32,10 @@
   padding-left: px */
 }
 
+.adding-space {
+padding-top: 60px;
+}
+
 #Uploads {
   background:red;
 }
