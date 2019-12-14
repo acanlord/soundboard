@@ -1,9 +1,17 @@
 #!/usr/bin/env python
+"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 
-if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "soundboard.settings")
+def main():
+    if 'DYNO' in os.environ:
+        # Is being run on Heroku, use production as default settings
+        default_settings_file = 'soundboard.config.production'
+    else:
+        # Not being run on Heroku, use local as default settings
+        default_settings_file = 'soundboard.config.local'
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', default_settings_file)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -13,3 +21,7 @@ if __name__ == "__main__":
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+
+if __name__ == '__main__':
+    main()
