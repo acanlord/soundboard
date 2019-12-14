@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+django-debug-toolbar = "*"
 django = "*"
 django-bootstrap4 = "*"
 django-heroku = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 requests = "*"
+bootstrap4 = "*"
 
-[dev-packages]
-django-debug-toolbar = "*"
